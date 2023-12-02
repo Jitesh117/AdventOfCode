@@ -8,8 +8,8 @@ This repository contains my solutions for the Advent of Code challenges.
 
 - [x] Day 1: Puzzle 1
 - [x] Day 1: Puzzle 2
-- [ ] Day 2: Puzzle 1
-- [ ] Day 2: Puzzle 2
+- [x] Day 2: Puzzle 1
+- [x] Day 2: Puzzle 2
 - [ ] Day 3: Puzzle 1
 - [ ] Day 3: Puzzle 2
 - [ ] Day 4: Puzzle 1
