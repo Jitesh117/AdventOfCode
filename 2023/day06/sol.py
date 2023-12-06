@@ -21,14 +21,18 @@ distance = data.split('\n')[1].split(': ')[1].split()
 
 times = ""
 distances = ""
+
 for t in time:
     times += t
 for d in distance:
     distances += d
+
 times = int(times)
 distances = int(distances)
+
 result_b = 1
 count = 0
+
 for j in range(times):
     dist = (j * (times - j))
     if dist > distances:
