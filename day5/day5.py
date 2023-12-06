@@ -3,7 +3,7 @@ with open('day5/input.txt', 'r') as file:
 maps = data.split('\n')
 
 sections = data.split('\n\n')
-seeds, *function_data = sections
+seeds, *categories = sections
 seeds = [int(x) for x in seeds.split(':')[1].split()]
 
 class Operations:
@@ -39,7 +39,7 @@ class Operations:
             ranges = new_ranges
         return applied + ranges
 
-functions = [Operations(data) for data in function_data]
+functions = [Operations(data) for data in categories]
 
 P1_results = []
 for value in seeds:
