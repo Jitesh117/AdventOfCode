@@ -35,6 +35,6 @@ for j in range(times):
         count += 1
 result_b *= count
 
-# print(result_b)
+print(result_b)
 
 
