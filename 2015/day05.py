@@ -1,40 +1,43 @@
 import re
 
+
 with open("input.txt") as file:
     input = file.read()
 
 lines = input.splitlines()
 
-result = 0
-disallowed = ['ab', 'cd', 'pq', 'xy']
+
+def is_nice_string(string):
+    condition1 = r"(?=.*[aeiou].*[aeiou].*[aeiou])"
+    condition2 = r"(\w)(\1)"
+    condition3 = r"(?!.*ab)(?!.*cd)(?!.*pq)(?!.*xy)"
+
+    regex = condition3 + condition1 + condition2
+    return bool(re.search(regex, string))
+
 
 def part1(lines):
+    result = 0
     for line in lines:
-        vowel = 0
-        present = False
-        repeat = False
-        line += "*"
-        for word in disallowed:
-            if word in line:
-                present = True
-                break
-
-        for i in range(len(line) - 1):
-            if line[i] in "aeiou":
-                vowel += 1
-            if line[i] == line[i + 1]:
-                repeat = True
-        if vowel >= 3 and  (not present) and repeat:
-            result += 1
-
+        result += int(is_nice_string(line))
     print(result)
 
-naughty = 0
 
-for s in lines:
-    if re.match(r"\w*(\w\w)\w*\1\w*", s) is None:
-        naughty += 1
-    elif re.match(r"\w*(\w)[^\1]\1\w*", s) is None:
-        naughty +=1
-        
-print(len(lines)-naughty)
+def solve(string):
+    condition1 = r"((\w\w).*\2)"
+
+    condition2 = r"(\w).\1"
+
+    # Check if both conditions are satisfied
+    return bool(re.search(condition1, string)) and bool(re.search(condition2, string))
+
+
+def part2(lines):
+    result = 0
+    for line in lines:
+        result += int(solve(line))
+    print(result)
+
+
+part1(lines)
+part2(lines)
