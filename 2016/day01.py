@@ -21,20 +21,18 @@ def part1():
 def part2():
     x = 0
     y = 0
-    dx, dy = 0, 1  # Start facing north
-    visited = set([(0, 0)])  # Set to store visited locations
+    dx, dy = 0, 1
+    visited = set([(0, 0)])
 
     for step in steps:
         turn = step[0]
         distance = int(step[1:])
 
-        # Turn
         if turn == "R":
             dx, dy = dy, -dx
-        else:  # turn == "L"
+        else:
             dx, dy = -dy, dx
 
-        # Move and check each step
         for _ in range(distance):
             x += dx
             y += dy
@@ -43,9 +41,6 @@ def part2():
                 return
             visited.add((x, y))
 
-    print("No location visited twice")
 
-
-# Assuming 'steps' is defined elsewhere in your code
 part1()
 part2()
